@@ -38,7 +38,7 @@ export default class Request extends RequestBase {
         return this;
     }
 
-    request = (options) => {
+    request(options) {
         return this.init({...options, interrupt: false});
     }
 
