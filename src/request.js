@@ -38,8 +38,8 @@ export default class Request extends RequestBase {
         return this;
     }
 
-    request(options) {
-        return this.init({...options, interrupt: false});
+    request(options, callback) {
+        return this.init({...options, interrupt: false, callback});
     }
 
     promise() {

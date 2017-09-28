@@ -5,19 +5,20 @@ import utils from './utils';
 export class RequestRoutes extends Router {
     constructor(options){
         super(options);
+        this.options = {...options};
     }
 
     parseRequestOptions(options){
         return utils.parseRequestOptions({...this.options, ...(typeof options === 'string' ? {path: options } : options)})
     }
 
-    request(options){
+    request(options, callback){
         const request = new Request(false);
-        this.handle(this.parseRequestOptions(options), request, (err) => {
+        this.handle(options = this.parseRequestOptions(options), request, (err) => {
             if(err){
                 throw err;
             }
-            request.request(options);
+            request.request(options, callback);
         });
         return request;
     }
