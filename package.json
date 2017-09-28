@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_PATH=./src nyc ava",
+    "test": "nyc ava",
     "build": "babel src --out-dir lib --copy-files"
   },
   "author": "",
